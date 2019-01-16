@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xk.mapper.BlogMapper">
+  <resultMap id="BaseResultMap" type="com.xk.model.Blog">
+    <id column="blog_id" jdbcType="INTEGER" property="blogId" />
+    <result column="blog_imgs" jdbcType="VARCHAR" property="blogImgs" />
+    <result column="blog_title" jdbcType="VARCHAR" property="blogTitle" />
+    <result column="blog_desc" jdbcType="VARCHAR" property="blogDesc" />
+    <result column="blog_click_count" jdbcType="INTEGER" property="blogClickCount" />
+    <result column="blog_greate_count" jdbcType="INTEGER" property="blogGreateCount" />
+    <result column="blog_time" jdbcType="VARCHAR" property="blogTime" />
+    <result column="blog_kind_small" jdbcType="VARCHAR" property="blogKindSmall" />
+    <result column="blog_kind_big" jdbcType="VARCHAR" property="blogKindBig" />
+    <result column="blog_kind_label" jdbcType="VARCHAR" property="blogKindLabel" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xk.model.Blog">
+    <result column="blog_content" jdbcType="LONGVARCHAR" property="blogContent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    blog_id, blog_imgs, blog_title, blog_desc, blog_click_count, blog_greate_count, blog_time, 
+    blog_kind_small, blog_kind_big, blog_kind_label
+  </sql>
+  <sql id="Blob_Column_List">
+    blog_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.xk.model.BlogExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.xk.model.BlogExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from blog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+    <select id="selectByExampleEx" parameterType="map" resultMap="BaseResultMap">
+    select
+    <if test="example.distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from blog
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+    <if test="example.orderByClause != null">
+      order by ${example.orderByClause}
+    </if>
+    <if test="num!=null and start!=null">
+      limit ${start},${num}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from blog
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xk.model.BlogExample">
+    delete from blog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xk.model.Blog">
+    insert into blog (blog_id, blog_imgs, blog_title, 
+      blog_desc, blog_click_count, blog_greate_count, 
+      blog_time, blog_kind_small, blog_kind_big, 
+      blog_kind_label, blog_content)
+    values (#{blogId,jdbcType=INTEGER}, #{blogImgs,jdbcType=VARCHAR}, #{blogTitle,jdbcType=VARCHAR}, 
+      #{blogDesc,jdbcType=VARCHAR}, #{blogClickCount,jdbcType=INTEGER}, #{blogGreateCount,jdbcType=INTEGER}, 
+      #{blogTime,jdbcType=VARCHAR}, #{blogKindSmall,jdbcType=VARCHAR}, #{blogKindBig,jdbcType=VARCHAR}, 
+      #{blogKindLabel,jdbcType=VARCHAR}, #{blogContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xk.model.Blog">
+    insert into blog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="blogId != null">
+        blog_id,
+      </if>
+      <if test="blogImgs != null">
+        blog_imgs,
+      </if>
+      <if test="blogTitle != null">
+        blog_title,
+      </if>
+      <if test="blogDesc != null">
+        blog_desc,
+      </if>
+      <if test="blogClickCount != null">
+        blog_click_count,
+      </if>
+      <if test="blogGreateCount != null">
+        blog_greate_count,
+      </if>
+      <if test="blogTime != null">
+        blog_time,
+      </if>
+      <if test="blogKindSmall != null">
+        blog_kind_small,
+      </if>
+      <if test="blogKindBig != null">
+        blog_kind_big,
+      </if>
+      <if test="blogKindLabel != null">
+        blog_kind_label,
+      </if>
+      <if test="blogContent != null">
+        blog_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="blogId != null">
+        #{blogId,jdbcType=INTEGER},
+      </if>
+      <if test="blogImgs != null">
+        #{blogImgs,jdbcType=VARCHAR},
+      </if>
+      <if test="blogTitle != null">
+        #{blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="blogDesc != null">
+        #{blogDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="blogClickCount != null">
+        #{blogClickCount,jdbcType=INTEGER},
+      </if>
+      <if test="blogGreateCount != null">
+        #{blogGreateCount,jdbcType=INTEGER},
+      </if>
+      <if test="blogTime != null">
+        #{blogTime,jdbcType=VARCHAR},
+      </if>
+      <if test="blogKindSmall != null">
+        #{blogKindSmall,jdbcType=VARCHAR},
+      </if>
+      <if test="blogKindBig != null">
+        #{blogKindBig,jdbcType=VARCHAR},
+      </if>
+      <if test="blogKindLabel != null">
+        #{blogKindLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="blogContent != null">
+        #{blogContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xk.model.BlogExample" resultType="java.lang.Long">
+    select count(*) from blog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update blog
+    <set>
+      <if test="record.blogId != null">
+        blog_id = #{record.blogId,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogImgs != null">
+        blog_imgs = #{record.blogImgs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogTitle != null">
+        blog_title = #{record.blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogDesc != null">
+        blog_desc = #{record.blogDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogClickCount != null">
+        blog_click_count = #{record.blogClickCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogGreateCount != null">
+        blog_greate_count = #{record.blogGreateCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogTime != null">
+        blog_time = #{record.blogTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogKindSmall != null">
+        blog_kind_small = #{record.blogKindSmall,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogKindBig != null">
+        blog_kind_big = #{record.blogKindBig,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogKindLabel != null">
+        blog_kind_label = #{record.blogKindLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogContent != null">
+        blog_content = #{record.blogContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update blog
+    set blog_id = #{record.blogId,jdbcType=INTEGER},
+      blog_imgs = #{record.blogImgs,jdbcType=VARCHAR},
+      blog_title = #{record.blogTitle,jdbcType=VARCHAR},
+      blog_desc = #{record.blogDesc,jdbcType=VARCHAR},
+      blog_click_count = #{record.blogClickCount,jdbcType=INTEGER},
+      blog_greate_count = #{record.blogGreateCount,jdbcType=INTEGER},
+      blog_time = #{record.blogTime,jdbcType=VARCHAR},
+      blog_kind_small = #{record.blogKindSmall,jdbcType=VARCHAR},
+      blog_kind_big = #{record.blogKindBig,jdbcType=VARCHAR},
+      blog_kind_label = #{record.blogKindLabel,jdbcType=VARCHAR},
+      blog_content = #{record.blogContent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update blog
+    set blog_id = #{record.blogId,jdbcType=INTEGER},
+      blog_imgs = #{record.blogImgs,jdbcType=VARCHAR},
+      blog_title = #{record.blogTitle,jdbcType=VARCHAR},
+      blog_desc = #{record.blogDesc,jdbcType=VARCHAR},
+      blog_click_count = #{record.blogClickCount,jdbcType=INTEGER},
+      blog_greate_count = #{record.blogGreateCount,jdbcType=INTEGER},
+      blog_time = #{record.blogTime,jdbcType=VARCHAR},
+      blog_kind_small = #{record.blogKindSmall,jdbcType=VARCHAR},
+      blog_kind_big = #{record.blogKindBig,jdbcType=VARCHAR},
+      blog_kind_label = #{record.blogKindLabel,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xk.model.Blog">
+    update blog
+    <set>
+      <if test="blogImgs != null">
+        blog_imgs = #{blogImgs,jdbcType=VARCHAR},
+      </if>
+      <if test="blogTitle != null">
+        blog_title = #{blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="blogDesc != null">
+        blog_desc = #{blogDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="blogClickCount != null">
+        blog_click_count = #{blogClickCount,jdbcType=INTEGER},
+      </if>
+      <if test="blogGreateCount != null">
+        blog_greate_count = #{blogGreateCount,jdbcType=INTEGER},
+      </if>
+      <if test="blogTime != null">
+        blog_time = #{blogTime,jdbcType=VARCHAR},
+      </if>
+      <if test="blogKindSmall != null">
+        blog_kind_small = #{blogKindSmall,jdbcType=VARCHAR},
+      </if>
+      <if test="blogKindBig != null">
+        blog_kind_big = #{blogKindBig,jdbcType=VARCHAR},
+      </if>
+      <if test="blogKindLabel != null">
+        blog_kind_label = #{blogKindLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="blogContent != null">
+        blog_content = #{blogContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xk.model.Blog">
+    update blog
+    set blog_imgs = #{blogImgs,jdbcType=VARCHAR},
+      blog_title = #{blogTitle,jdbcType=VARCHAR},
+      blog_desc = #{blogDesc,jdbcType=VARCHAR},
+      blog_click_count = #{blogClickCount,jdbcType=INTEGER},
+      blog_greate_count = #{blogGreateCount,jdbcType=INTEGER},
+      blog_time = #{blogTime,jdbcType=VARCHAR},
+      blog_kind_small = #{blogKindSmall,jdbcType=VARCHAR},
+      blog_kind_big = #{blogKindBig,jdbcType=VARCHAR},
+      blog_kind_label = #{blogKindLabel,jdbcType=VARCHAR},
+      blog_content = #{blogContent,jdbcType=LONGVARCHAR}
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xk.model.Blog">
+    update blog
+    set blog_imgs = #{blogImgs,jdbcType=VARCHAR},
+      blog_title = #{blogTitle,jdbcType=VARCHAR},
+      blog_desc = #{blogDesc,jdbcType=VARCHAR},
+      blog_click_count = #{blogClickCount,jdbcType=INTEGER},
+      blog_greate_count = #{blogGreateCount,jdbcType=INTEGER},
+      blog_time = #{blogTime,jdbcType=VARCHAR},
+      blog_kind_small = #{blogKindSmall,jdbcType=VARCHAR},
+      blog_kind_big = #{blogKindBig,jdbcType=VARCHAR},
+      blog_kind_label = #{blogKindLabel,jdbcType=VARCHAR}
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </update>
+</mapper>

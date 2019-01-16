@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.3.xsd ">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/blog_tables?characterEncoding=utf-8"/>
+        <property name="username" value="admin"/>
+        <property name="password" value="123"/>
+    </bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="sqlMapConfig.xml" />
+    </bean>
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+    
+    <bean id="blogmapper" class="com.xk.service.BlogService">
+        <property name="sqlSession" ref="sqlSessionTemplate" />
+    </bean>
+    <bean id="usermapper" class="com.xk.service.BlogUserService">
+        <property name="sqlSession" ref="sqlSessionTemplate" />
+    </bean>
+    <bean id="commentmapper" class="com.xk.service.CommentService">
+        <property name="sqlSession" ref="sqlSessionTemplate" />
+    </bean>
+    <bean id="slidemapper" class="com.xk.service.SlideService">
+        <property name="sqlSession" ref="sqlSessionTemplate" />
+    </bean>
+    
+    <bean id="LoginAction" class="com.xk.action.LoginAction" scope="prototype"/>
+    <bean id="ModifyAction" class="com.xk.action.ModifyAction" scope="prototype"/>
+
+    <bean id="blog" class="com.xk.model.Blog" />
+    <bean id="blogUser" class="com.xk.model.BlogUser" />
+    <bean id="slide" class="com.xk.model.Slide" />
+    <bean id="comment" class="com.xk.model.Comment" />
+</beans>

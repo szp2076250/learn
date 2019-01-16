@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration    
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"    
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"> 
+<generatorConfiguration>
+	<context id="generateTables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true"/>
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+		connectionURL="jdbc:mysql://localhost:3306/blog_tables?characterEncoding=utf-8"
+		userId="admin"
+		password="123">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false"/>
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.xk.model" targetProject=".\src">
+			<property name="enableSubPackages" value="false"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="com.xk.mapper" targetProject=".\src">
+			<property name="enableSubPackages" value="false"/>
+		</sqlMapGenerator>
+		<javaClientGenerator targetPackage="com.xk.mapper" type="XMLMAPPER" targetProject=".\src">
+			<property name="enableSubPackages" value="false"/>
+		</javaClientGenerator>
+		<table tableName="blog_user"></table>
+		<table tableName="slide"></table>
+		<table tableName="blog"></table>
+		<table tableName="comment"></table>
+	</context>
+</generatorConfiguration>
