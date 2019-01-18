@@ -1,3 +1,2 @@
-# learn javaEE programing
 
-# simple ecipse project
+# simple ecipse project only for learn javaEE programing
