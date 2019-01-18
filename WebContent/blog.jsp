@@ -33,6 +33,9 @@
     <!-- <script type="text/javascript" src="http://ibootstrap-file.b0.upaiyun.com/www.layoutit.com/js/jquery.htmlClean.js"></script> -->
     <!-- <script type="text/javascript" src="http://ibootstrap-file.b0.upaiyun.com/www.layoutit.com/js/builder/v3/scripts.min.js"></script> -->
     <script type="text/javascript" src="js/common.js"></script>
+    <!--<script type="text/javascript" src="js/bootstrap-modal.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="css/mycss.css">
+    
 </head>
 <body>
 	<div class="container">
@@ -209,61 +212,95 @@
 			</div>
 			<div class="row clearfix">
 				<div class="col-md-12 column" id="blog_content">
-					<h2>
-						Heading
-					</h2>
-					<p>
-						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-					</p>
-					<p>
-						 <a class="btn" href="#">View details »</a>
-					</p>
-					<h2>
-						Heading
-					</h2>
-					<p>
-						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-					</p>
-					<p>
-						 <a class="btn" href="#">View details »</a>
-					</p>
-					<h2>
-						Heading
-					</h2>
-					<p>
-						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-					</p>
-					<p>
-						 <a class="btn" href="#">View details »</a>
-					</p>
-					<h2>
-						Heading
-					</h2>
-					<p>
-						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-					</p>
-					<p>
-						 <a class="btn" href="#">View details »</a>
-					</p>
+			
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="col-md-3 column img_wrapper">
+						<div class="img_box">
+							<img class="img-responsive center-block"  src="http://ibootstrap-file.b0.upaiyun.com/lorempixel.com/1600/500/sports/1/default.jpg">
+						</div>
+					</div>
+					<div class="col-md-9 column">
+					<div class="blog_content">
+						<h2>
+							Heading
+						</h2>
+						<p>
+							Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+						</p>
+						<p>
+							 <a class="btn" href="#">View details »</a>
+						</p>
+					</div>
+						
+					</div>
+					</div>
+				</div>
+			
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="col-md-3 column img_wrapper">
+						<div class="img_box">
+							<img class="img-responsive center-block"  src="http://ibootstrap-file.b0.upaiyun.com/lorempixel.com/1600/500/sports/1/default.jpg">
+						</div>
+					</div>
+					<div class="col-md-9 column">
+					<div class="blog_content">
+						<h2>
+							Heading
+						</h2>
+						<p>
+							Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+						</p>
+						<p>
+							 <a class="btn" href="#">View details »</a>
+						</p>
+					</div>
+						
+					</div>
+					</div>
+				</div>
+				
+				
+				
+				<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="col-md-3 column img_wrapper">
+							<img class="img-responsive center-block"  src="http://ibootstrap-file.b0.upaiyun.com/lorempixel.com/1600/500/sports/1/default.jpg">
+					</div>
+					<div class="col-md-9 column">
+						<h2>
+							Heading
+						</h2>
+						<p>
+							Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+						</p>
+						<p>
+							 <a class="btn" href="#">View details »</a>
+						</p>
+					</div>
+					</div>
+				</div>
+		</div>
 					<ul class="pagination">
 						<li>
 							 <a href="#">Prev</a>
 						</li>
-						<li>
-							 <a href="#">1</a>
-						</li>
-						<li>
-							 <a href="#">2</a>
-						</li>
-						<li>
-							 <a href="#">3</a>
-						</li>
-						<li>
-							 <a href="#">4</a>
-						</li>
-						<li>
-							 <a href="#">5</a>
-						</li>
+							<li>
+								 <a href="#">1</a>
+							</li>
+							<li>
+								 <a href="#">2</a>
+							</li>
+							<li>
+								 <a href="#">3</a>
+							</li>
+							<li>
+								 <a href="#">4</a>
+							</li>
+							<li>
+								 <a href="#">5</a>
+							</li>
 						<li>
 							 <a href="#">Next</a>
 						</li>
@@ -279,14 +316,55 @@
 			</p>
 		</div>
 	</div>
+	
+	<!-- blog content show -->
+	<li><a id="nouse" href="#model-blog-content"  role="button" class="btn" data-toggle="modal">nouse</a></li>
+								<div class="modal fade in" style="margin-left:100px" id="model-blog-content" >
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+												<h4 class="modal-title" id="blog_show_title">
+													博客标题
+												</h4>
+												<small id="blog_show_desc">
+													博客描述
+												</small>
+											</div>
+											<div class="modal-body">
+					                            <div class="col-md-12 column" id="blog_show_content">
+					                                                                                                 博客内容   
+					                            </div>
+											</div>
+											<div class="modal-footer">
+													<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>
 </div>
 
 <script type="text/javascript">
+
+function calc(s){
+	var bordT = $(s).outerWidth() - $(s).innerWidth();  
+	var paddT = $(s).innerWidth() - $(s).width();  
+	var margT = $(s).outerWidth(true) - $(s).outerWidth();
+	console.log(bordT);
+	console.log(paddT);
+	console.log(margT);
+}
+
 $(document).ready(function(){
 	var returnRet;
 	var current_page=1;
+	var total_page=0;
 	
-	(function(){
+	var wrapper = $(".img_wrapper");
+
+ 	var refresh = (function(){
 		var fd = new FormData();
 		fd.append("page",current_page);
 		xk_post("blog_page",fd,function(ret){
@@ -295,21 +373,77 @@ $(document).ready(function(){
 			var total="";
 			for(var i=0;i<(data.data.length);i++){
 				
-				var row = "<h2>"+
-				data.data[i].blogTitle+
-					"</h2>"+
-					"<p>"+
-					data.data[i].blogDesc+
-					"</p>"+
-					"<p>"+
-						 "<a class=\"btn\" href=\"#\">查看详情 »</a>"+
-					"</p>";
+				var row="<div class=\"row clearfix\">"+
+				"<div class=\"col-md-12 column\">"+
+					"<div class=\"col-md-3 column img_wrapper\">"+
+							"<img class=\"img-responsive center-block\"  src=\"http://ibootstrap-file.b0.upaiyun.com/lorempixel.com/1600/500/sports/1/default.jpg\">"+
+					"</div>"+
+					"<div class=\"col-md-9 column\">"+
+						"<h2>"+
+					data.data[i].blogTitle+
+						"</h2>"+
+						"<p>"+
+						data.data[i].blogDesc+
+						"</p>"+
+						"<p>"+
+							 "<a class=\"blog_show_info\" blog_id=\""+data.data[i].blogId+"\" href=\"#\">查看详情  »</a>"+
+						"</p>"+
+					"</div></div></div>";
 					
 				total+=row;
 			}
 			$("#blog_content").html(total);
+			
+			$(".center-block").css("padding-top","25px");
+			$(".center-block").height("100"); 
 		});
-	})();
+	}); 
+ 	
+ 	refresh();
+ 	
+ 	(function(){
+ 		var fd = new FormData();
+		fd.append("page",current_page);
+		xk_post("blog_count",fd,function(ret){
+			total_page = JSON.parse(ret.result).count%10==0?JSON.parse(ret.result).count/10:JSON.parse(ret.result).count/10+1;
+			var total="";
+			console.log(total_page);
+			for(var index=0;index<parseInt(total_page);index++){
+				total+="<li><a class=\"page\" name=\""+(index+1)+"\" href=\"#\">"+(index+1)+"</a></li>";
+			}
+			$(".pagination").html("<li><a  href=\"#\">Prev</a></li>"+total+"<li><a href=\"#\">Next</a></li>");
+		});
+ 	})();
+ 	
+ 	
+ 	$("body").on("click",".page",function(){
+ 		var fd = new FormData();
+		fd.append("page",$(this).attr("name"));
+		current_page=$(this).attr("name");
+		$(".page").parent().removeClass("active");
+		$(this).parent().addClass("active");
+		
+		refresh();
+ 	});
+ 	
+ 	$("#nouse").hide();
+ 	$("body").on("click",".blog_show_info",function(){
+ 		var fd = new FormData();
+ 		fd.append("id",$(this).attr("blog_id"));
+ 		xk_post("blog_info",fd,function(ret){
+			jsonRet=JSON.parse(ret.result);
+			console.log(jsonRet);
+			//clear
+			$("#blog_show_title").html("");
+			$("#blog_show_content").html("");
+			$("#blog_show_desc").html("");
+			//set
+		   $("#blog_show_title").html(jsonRet.data.blogTitle);
+		   $("#blog_show_desc").html(jsonRet.data.blogDesc);
+		   $("#blog_show_content").html(jsonRet.data.blogContent);
+		   $("#nouse").click();
+ 		});
+ 	});
 });	
 </script>
 

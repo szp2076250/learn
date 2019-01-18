@@ -99,6 +99,17 @@ public class BlogAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	public String count() {
+		BlogService blogService = (BlogService)CommonUnit.getCtx().getBean(BlogConst.BEAN_BLOG);
+		JSONObject jsonObject = new JSONObject();
+		long count=blogService.GetTotalBlogCount();
+		
+		jsonObject.put("count", count);
+		jsonObject.put("resultcode", 0);
+		this.result = jsonObject.toString();
+		return SUCCESS;
+	}
+	
 	public String info() {
 		BlogService blogService = (BlogService)CommonUnit.getCtx().getBean(BlogConst.BEAN_BLOG);
 		JSONObject jsonObject = new JSONObject();
